@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>E-commerce</title>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+  <body>
+    <div class="container">
+        <h1>Liste des produits</h1>
+        <form>
+            <div class="formGroup">     
+              <label>Search:</label>
+              <input type="number" name="price" class="form-control">
+            </div>
+         </form>
+        
+<table class="table">
+    <tr><th>Id</th><th>Title</th><th>Price</th><th>quantity</th><th>Like</th></tr>
+        <tr *ngFor="let product of productList; let i=index "> 
+            <td>{{product.id}}</td>
+            <td>{{product.title}}</td>
+            <td>{{product.quantity}}</td>
+            <td>{{product.like}}</td>
+            <td>
+                <button type="button" class="btn btn-warning" (clik)="Like(i)">Like</button></td>
+            <td>
+                <button type="button" class="btn btn-success"  [disabled]="product.quantity==0" (click)="buyProduct(i)">
+                    Buy
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
